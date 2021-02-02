@@ -1,7 +1,9 @@
-from pathlib import Path
+#from pathlib import Path
+#from os
+from unipath import Path
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
-BASE_DIR = Path(__file__).resolve().parent.parent
+BASE_DIR = Path(__file__).ancestor(3)
 
 
 # Quick-start development settings - unsuitable for production
@@ -22,6 +24,7 @@ INSTALLED_APPS = [
     #Local apps
     'applications.departamento',
     'applications.persona',
+    'applications.home',
 ]
 
 MIDDLEWARE = [
@@ -39,7 +42,8 @@ ROOT_URLCONF = 'empleado.urls'
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': [],
+        # En la linea de abajo se configura la nueva carpeta template
+        'DIRS': [BASE_DIR.child('templates')],
         'APP_DIRS': True,
         'OPTIONS': {
             'context_processors': [
