@@ -1,0 +1,31 @@
+{% extends 'base.html' %}
+
+{% block titulo %}Empleados Departamento{% endblock titulo %}
+
+{% block content %}
+
+  {% include 'includes/header.html' %}
+
+  <div class="container">
+    <h1>Lista de empleados </h1>
+    <div class="container">
+      <table class="table">
+        <tbody>
+	  {% for e in object_list %}
+	    <tr>
+	      <td scope='row'>{{e.id}}</td>
+	      <td>{{e.first_name}}</td>
+	      <td>{{e.last_name}}</td>
+	      <td>
+		<a class="btn btn-outline-info" href="{% url 'persona_app:empleado_detail' e.id%}">
+		  Ver
+		</a>
+	      </td>
+	    </tr>
+	  {% endfor %}
+	</tbody>
+      </table>
+    </div>
+  </div>
+
+{% endblock content %}

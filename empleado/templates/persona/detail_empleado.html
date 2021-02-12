@@ -1,0 +1,41 @@
+{% extends 'base.html'%}
+{% load static %}
+
+{%block titulo%}
+  {{empleado.first_name}}
+{%endblock titulo%}
+
+{%block content%}
+{%include 'includes/header.html'%}
+  <div class="container">
+    <h1>{{empleado.first_name}} {{empleado.last_name}}</h1>
+    {%if empleado.avatar%}
+    <img src="{{empleado.avatar.url}}" class="img-thumbnail">
+    {%else%}
+    <img src="{%static 'img/wall1.png' %}" class="img-thumbnail">
+    {%endif%}
+    <h2>{{empleado.get_job_display}}</h2>
+    <p>Departamento: {{empleado.departamento.shor_name}}</p>
+    <p>Habilidades:</p>
+    <ul>
+    {%for h in empleado.habilidades.all %}
+      <li>{{h.habilidad}}</li>
+    {%endfor%}
+    </ul>
+  </div>
+{%endblock content%}
+
+<h1>Detail Empleado</h1>
+
+<p>El DetailView se utiliza para mostrar datos de nuestros registros</p>
+en un formato no de tabla
+{{ object }}
+
+<p>Todos los datos</p>
+
+<p> Nota: tambien se puede acceder a la data con el nombre del modelo
+
+<p>Nombre: {{ empleado.first_name }}</p>
+<p>Apellido: {{ empleado.last_name }}</p>
+<p>ID de trabajo: {{ empleado.job }}</p>
+

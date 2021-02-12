@@ -1,0 +1,37 @@
+{% extends 'base.html'%}
+{%block titulo%}
+Nuevo departamento
+{%endblock titulo%}
+
+
+{%block content%}
+{%include 'includes/header.html'%}
+<div class="container">
+  <div class="container">
+    {%include 'includes/opcion_registro.html'%}
+  </div>
+  <h1>Nuevo departamento</h1>
+
+    <form method=POST> {% csrf_token %}
+      <h3>Datos Empleado</h3>
+      <p>
+	{{form.nombre}}
+      </p>
+      <p>
+	{{form.apellido}}
+      </p>
+      <h3>Datos departamento</h3>
+      <p>
+	{{form.departamento}}
+      </p>
+      <p>
+	{{form.depa}}
+      </p>
+      <button type='submit'>Enviar</button>
+    </form>
+</div>
+
+
+{%endblock content%}
+
+

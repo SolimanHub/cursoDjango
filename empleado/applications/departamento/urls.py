@@ -15,10 +15,19 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import path
+from . import views
 
-def DesdeApps(self):
-    print('=======Desde departamento =========')
+app_name = 'departamento_app'
 
 urlpatterns = [
-    path('departamento/', DesdeApps),
+    path(
+        'newdepa/', 
+        views.NewDepartamentoView.as_view(), 
+        name='new-depa'
+    ),
+    path(
+        'lista_departamentos/', 
+        views.ListDepartamentos.as_view(), 
+        name='list_depa',
+    ),
 ]

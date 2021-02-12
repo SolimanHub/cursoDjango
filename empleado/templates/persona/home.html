@@ -1,0 +1,23 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block titulo %} Home {% endblock titulo %}
+
+{% block content%} 
+  {% include 'includes/header.html' %}
+  <!--Imagen del home-->
+  <div class='position-relative overflow-hidden p-3 p-md-5 m-md-3 text-center bg-light'>
+    <img class="img-fluid" src="{% static 'img/wall1.png' %}" alt="Space">
+  </div>
+  <!--Fin de la img del home-->
+  <!--Bloque de bienvenida-->
+  <div class="container">
+    <div class="row">
+      <h2>Bienvenido al sistema de registro de empleados.</h2>
+    </div>
+    <div class="row">
+      <p>Mensaje de bienvenida</p>
+    </div>
+  </div>
+  <!--Fin bloque de bienvenida-->
+{% endblock content%}
